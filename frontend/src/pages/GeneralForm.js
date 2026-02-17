@@ -46,7 +46,7 @@ export default function GeneralForm() {
       />
 
       <SelectField
-        label="Using Drugs"
+        label="Are you currently using any drugs"
         name="usingDrugs"
         options={["Yes", "No"]}
         value={form.usingDrugs}

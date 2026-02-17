@@ -53,14 +53,30 @@ export default function OverweightForm() {
         required
       />
 
-      <SelectField
-        label="Dieted Before"
-        name="dietedBefore"
-        options={["Yes", "No"]}
-        value={form.dietedBefore}
-        onChange={handleChange}
-        required
-      />
+      <h3>Have you ever been on a diet to lose weight?</h3>
+
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <label>
+          <input
+            type="radio"
+            name="dietedBefore"
+            value="Yes"
+            checked={form.dietedBefore === "Yes"}
+            onChange={handleChange}
+          />
+          Yes
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="dietedBefore"
+            value="No"
+            checked={form.dietedBefore === "No"}
+            onChange={handleChange}
+          />
+          No
+        </label>
+      </div>
 
       <InputField
         label="Comments"

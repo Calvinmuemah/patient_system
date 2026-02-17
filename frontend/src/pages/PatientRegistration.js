@@ -43,25 +43,46 @@ export default function PatientRegistration() {
       />
 
       <InputField
+        label="Middle Name (Optional)"
+        value={form.middleName || ""}
+        onChange={(e) => setForm({ ...form, middleName: e.target.value })}
+      />
+
+      <InputField
         label="Last Name"
         value={form.lastName || ""}
         onChange={(e) => setForm({ ...form, lastName: e.target.value })}
         required
       />
 
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <label>
+          <input
+            type="radio"
+            name="gender"
+            value="Male"
+            checked={form.gender === "Male"}
+            onChange={(e) => setForm({ ...form, gender: e.target.value })}
+          />
+          Male
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="gender"
+            value="Female"
+            checked={form.gender === "Female"}
+            onChange={(e) => setForm({ ...form, gender: e.target.value })}
+          />
+          Female
+        </label>
+      </div>
+
       <InputField
         label="Date of Birth"
         type="date"
         value={form.dob || ""}
         onChange={(e) => setForm({ ...form, dob: e.target.value })}
-        required
-      />
-
-      <SelectField
-        label="Gender"
-        options={["Male", "Female"]}
-        value={form.gender || ""}
-        onChange={(e) => setForm({ ...form, gender: e.target.value })}
         required
       />
 

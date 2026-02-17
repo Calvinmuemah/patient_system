@@ -29,6 +29,7 @@ export const registerPatient = async (req, res) => {
 
     res.status(201).json(patient);
   } catch (error) {
+    console.error("Error in registerPatient:", error);
     res.status(500).json({ message: error.message });
   }
 };
@@ -67,11 +68,14 @@ export const getPatients = async (req, res) => {
       const age =
         new Date().getFullYear() - new Date(patient.dob).getFullYear();
 
+      let lastAssessmentDate = lastVital ? lastVital.visitDate : null;
+
       result.push({
         patientId: patient.patientId,
         name: `${patient.firstName} ${patient.lastName}`,
         age,
         lastBMIStatus: bmiStatus,
+        lastAssessmentDate,
       });
     }
 

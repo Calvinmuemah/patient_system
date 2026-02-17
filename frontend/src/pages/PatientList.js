@@ -20,8 +20,24 @@ export default function PatientList() {
   const columns = [
     { key: "name", label: "Name" },
     { key: "age", label: "Age" },
-    { key: "bmiStatus", label: "Last BMI Status" },
+    { key: "lastBMIStatus", label: "BMI Status" },
+    { key: "lastAssessmentDate", label: "Last Assessment Date" },
   ];
+
+  const formattedPatients = patients.map((patient) => ({
+    ...patient,
+    lastBMIStatus: patient.lastBMIStatus || "N/A",
+    lastAssessmentDate: patient.lastAssessmentDate
+      ? new Date(patient.lastAssessmentDate).toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        })
+      : "N/A",
+  }));
+
+  console.log("Patients Data:", patients);
+  console.log("Patients Data (Debug):", JSON.stringify(patients, null, 2));
 
   return (
     <div style={{ maxWidth: "800px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -36,7 +52,7 @@ export default function PatientList() {
         <button onClick={fetchPatients}>Filter</button>
       </div>
 
-      <Table columns={columns} data={patients} />
+      <Table columns={columns} data={formattedPatients} />
     </div>
   );
 }
