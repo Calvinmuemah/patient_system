@@ -17,4 +17,8 @@ app.use("/api/patients", patientRoutes);
 app.use("/api/vitals", vitalsRoutes);
 app.use("/api/assessments", assessmentRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the backend server!');
+});
+
 export default app;
