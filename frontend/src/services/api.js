@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
+  baseURL: "https://patient-system-nu.vercel.app/api",
   // baseURL: "http://localhost:5000/api",
-  baseURL: "https://patient-system-two.vercel.app/api",
 });
 
 export default api;
