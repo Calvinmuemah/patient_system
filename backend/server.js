@@ -8,9 +8,8 @@ const PORT = process.env.PORT;
 // connect to MongoDB
 connectDB();
 
-
-app.get('/status', (req, res) => {
-  res.send('Server is running');
+app.get('/', (req, res) => {
+  res.send('Welcome to the backend server!');
 });
 
 app.listen(PORT, () => {
