@@ -68,3 +68,56 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Frontend Setup
+
+## Overview
+The frontend of the Patient Management System is built with React. It provides an intuitive user interface for managing patient data, assessments, and vitals.
+
+## Prerequisites
+- Node.js (v16 or later)
+
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
+2. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+## Running the Application
+Start the development server:
+```bash
+npm start
+```
+
+The app will run on `http://localhost:3000` by default.
+
+## Build for Production
+To create a production build:
+```bash
+npm run build
+```
+
+The build artifacts will be stored in the `build/` directory.
+
+## Folder Structure
+- `public/`: Static files
+- `src/`: Source code
+  - `components/`: Reusable UI components
+  - `hooks/`: Custom React hooks
+  - `pages/`: Page-level components
+  - `services/`: API service functions
+
+## Contributing
+Contributions are welcome! Please fork the repository and submit a pull request.
+
+## Learn More
+- [React Documentation](https://reactjs.org/)
+- [Create React App Documentation](https://create-react-app.dev/)

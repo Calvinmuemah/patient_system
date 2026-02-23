@@ -7,10 +7,14 @@ export default function PatientList() {
   const [date, setDate] = useState("");
 
   const fetchPatients = useCallback(async () => {
-    const response = await api.get(
-      date ? `/patients?visitDate=${date}` : "/patients"
-    );
-    setPatients(response.data);
+    try {
+      const response = await api.get(
+        date ? `/patients?visitDate=${date}` : "/patients"
+      );
+      setPatients(response.data);
+    } catch (error) {
+      console.error("Error fetching patients:", error);
+    }
   }, [date]);
 
   useEffect(() => {
@@ -36,12 +40,9 @@ export default function PatientList() {
       : "N/A",
   }));
 
-  console.log("Patients Data:", patients);
-  console.log("Patients Data (Debug):", JSON.stringify(patients, null, 2));
-
   return (
     <div style={{ maxWidth: "800px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <h2 style={{ textAlign: "center" }}>Patient List</h2>
+      <h2 style={{ textAlign: "center" }}>Patient Directory</h2>
 
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <input

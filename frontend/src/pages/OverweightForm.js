@@ -32,61 +32,76 @@ export default function OverweightForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "400px", margin: "0 auto" }}>
-      <h2 style={{ textAlign: "center" }}>Overweight Assessment</h2>
+    <div className="relative flex flex-col min-h-screen w-full bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 py-10 items-center">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-6 max-w-2xl bg-white dark:bg-slate-900 shadow-md rounded-lg p-8 text-slate-900 dark:text-slate-100"
+      >
+        <h2 className="text-2xl font-bold text-center text-gray-800 dark:text-white">
+          Overweight Assessment
+        </h2>
 
-      <InputField
-        label="Visit Date"
-        type="date"
-        name="visitDate"
-        value={form.visitDate}
-        onChange={handleChange}
-        required
-      />
+        <InputField
+          label="Visit Date"
+          type="date"
+          name="visitDate"
+          value={form.visitDate}
+          onChange={handleChange}
+          className="bg-slate-50 dark:bg-slate-800 text-black"
+          required
+        />
 
-      <SelectField
-        label="General Health"
-        name="generalHealth"
-        options={["Good", "Poor"]}
-        value={form.generalHealth}
-        onChange={handleChange}
-        required
-      />
+        <SelectField
+          label="General Health"
+          name="generalHealth"
+          options={["Good", "Poor"]}
+          value={form.generalHealth}
+          onChange={handleChange}
+          required
+        />
 
-      <h3>Have you ever been on a diet to lose weight?</h3>
+        <h3 className="text-lg font-medium text-gray-700 dark:text-gray-300">
+          Have you ever been on a diet to lose weight?
+        </h3>
 
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <label>
-          <input
-            type="radio"
-            name="dietedBefore"
-            value="Yes"
-            checked={form.dietedBefore === "Yes"}
-            onChange={handleChange}
-          />
-          Yes
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="dietedBefore"
-            value="No"
-            checked={form.dietedBefore === "No"}
-            onChange={handleChange}
-          />
-          No
-        </label>
-      </div>
+        <div className="flex justify-between">
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="dietedBefore"
+              value="Yes"
+              checked={form.dietedBefore === "Yes"}
+              onChange={handleChange}
+            />
+            Yes
+          </label>
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="dietedBefore"
+              value="No"
+              checked={form.dietedBefore === "No"}
+              onChange={handleChange}
+            />
+            No
+          </label>
+        </div>
 
-      <InputField
-        label="Comments"
-        name="comments"
-        value={form.comments}
-        onChange={handleChange}
-        required
-      />
+        <InputField
+          label="Comments"
+          name="comments"
+          value={form.comments}
+          onChange={handleChange}
+          required
+        />
 
-      <button type="submit" style={{ alignSelf: "center" }}>Submit</button>
-    </form>
+        <button
+          type="submit"
+          className="px-6 py-3 bg-blue-500 dark:bg-blue-600 text-white rounded-lg hover:bg-blue-600 dark:hover:bg-blue-700 self-center"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
   );
 }
