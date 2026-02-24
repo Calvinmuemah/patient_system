@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://patient-system-nu.vercel.app/api",
+  baseURL: "https://patient-system-vm4s.onrender.com/api",
+  // baseURL: "https://patient-system-nu.vercel.app/api",
   // baseURL: "http://localhost:5000/api",
 });
 
